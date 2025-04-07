@@ -27,8 +27,37 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $user = Auth::user();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $redirectUrl = self::getDashboardRoute($user);
+        return redirect()->intended(($redirectUrl));
+    }
+
+    public static function getDashboardRoute($user): string
+    {
+
+
+        // Check for admin role
+        if ($user->hasAnyRole('admin')) {
+            return '/admin/dashboard';
+        }
+        if ($user->hasAnyRole('staff')) {
+            return '/staff/dashboard';
+        }
+        if ($user->hasAnyRole('manager')) {
+
+            return '/manager/dashboard';
+        }
+
+        if ($user->hasAnyRole('project manager')) {
+
+            return '/project-manager/dashboard';
+        }
+
+        return '/staff/dashboard';
+
+        // Default fallback
+        return '/';
     }
 
     /**
@@ -42,6 +71,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

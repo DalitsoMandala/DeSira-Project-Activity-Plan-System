@@ -19,7 +19,7 @@
             this.checkScreenSize();
         });
     }
-}" @open-canvas.window="toggle()" x-show="open" >
+}" @open-canvas.window="toggle()" x-show="open" x-cloak>
     <div class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform bg-slate-100 w-80 dark:bg-gray-800"
         tabindex="-1" aria-labelledby="drawer-label">
         <h5 id="drawer-label"

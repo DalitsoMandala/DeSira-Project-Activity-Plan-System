@@ -1,8 +1,14 @@
 <ul class="mt-2 space-y-1" x-data >
+
+    @php
+$routePrefix = \Illuminate\Support\Facades\Route::current()->getPrefix();
+$routePrefix = str_replace('/', '', $routePrefix);
+
+    @endphp
     <li>
-        <a href="#"
-            class="block px-4 py-2 text-sm font-medium rounded-lg  text-gray-500 hover:bg-gray-100 hover:text-gray-700 @if(request()->routeIs('dashboard')) bg-blue-900 text-white @endif">
-            <i class="mx-2 ri-settings-2-line"></i>    Dashboard </a>
+        <a href="/{{ $routePrefix }}/dashboard"
+            class="block px-4 py-2 text-sm font-medium rounded-lg  text-gray-500 hover:bg-gray-100 hover:text-gray-700 @if(request()->is($routePrefix.'/dashboard') ) bg-blue-900 text-white @endif">
+            <i class="mx-2 ri-settings-2-line"></i>    Dashboard  </a>
     </li>
 
 
@@ -25,16 +31,16 @@
             <!-- Soybean -->
             <li x-data="{ open: false }">
                 <li>
-                    <a href="#"
-                        class="block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
-                        <i class="mx-2 ri-home-5-line"></i>On-Farm Sites </a>
+                    <a href="/{{ $routePrefix }}/manage-crops/on-farm-sites"
+                        class="@if(request()->is($routePrefix.'/manage-crops/on-farm-sites') ) bg-blue-900 text-white @endif block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+                        <i class="mx-2 ri-home-5-line"></i>On-Farm Experiments </a>
                 </li>
             </li>
             <li x-data="{ open: false }">
                 <li>
-                    <a href="#"
-                        class="block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
-                        <i class="mx-2 ri-building-2-line"></i> On-Station Sites </a>
+                    <a href="/{{ $routePrefix }}/manage-crops/on-station-sites"
+                        class="@if(request()->is($routePrefix.'/manage-crops/on-station-sites') ) bg-blue-900 text-white @endif block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+                        <i class="mx-2 ri-building-2-line"></i> On-Station Experiments </a>
                 </li>
             </li>
 
@@ -42,20 +48,20 @@
     </li>
 
     <li>
-        <a href="#"
-            class="block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+        <a href="/{{ $routePrefix }}/manage-seasons"
+            class="@if(request()->is($routePrefix.'/manage-seasons') ) bg-blue-900 text-white @endif block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
             <i class="mx-2 ri-sun-cloudy-line"></i>     Manage Seasons </a>
     </li>
 
     <li>
-        <a href="#"
-            class="block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+        <a href="/{{ $routePrefix }}/operations"
+            class="@if(request()->is($routePrefix.'/operations') ) bg-blue-900 text-white @endif block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
             <i class="mx-2 ri-list-settings-fill"></i>  Operations </a>
     </li>
 
     <li>
-        <a href="/profile"
-            class="block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+        <a href="/{{ $routePrefix }}/profile"
+            class="@if(request()->is($routePrefix.'/profile') ) bg-blue-900 text-white @endif block px-4 py-2 text-sm font-medium text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700">
             <i class="mx-2 ri-user-line"></i>  Profile Settings </a>
     </li>
 </ul>

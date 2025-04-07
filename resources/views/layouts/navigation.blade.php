@@ -19,7 +19,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                    <a href="{{ route('dashboard') }}" class="flex items-center justify-between gap-2">
+                    <a href="/" class="flex items-center justify-between gap-2">
                         <x-application-logo class="block w-20 text-gray-100 fill-current dark:text-gray-200" />
 
                         <h5 class="hidden font-bold text-white lg:block">{{ config('app.name', 'Laravel') }}</h5>
@@ -44,7 +44,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="'/profile'">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -77,7 +77,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="'/'" :active="request()->is('/')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
@@ -90,7 +90,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="'/profile'">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 

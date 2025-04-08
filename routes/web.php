@@ -8,9 +8,14 @@ use App\Livewire\OnFarmSites;
 use App\Livewire\OnStationSites;
 use App\Livewire\Operations;
 use App\Livewire\ProfileManagement;
+use App\Models\ActivityLocation;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+
+
+
+
     return view('welcome');
 });
 
@@ -29,7 +34,7 @@ function getCommonRoutes($role)
         Route::get('/dashboard', Dashboard::class)->name($role . '.dashboard');
         Route::get('/manage-crops/on-farm-sites', OnFarmSites::class)->name($role . '.on-farm-sites');
         Route::get('/manage-crops/on-station-sites', OnStationSites::class)->name($role . '.on-station-sites');
-        Route::get('/manage-seasons', ManageSeasons::class)->name($role . '.manage-seasons');
+        Route::get('/manage-seasons/{id?}', ManageSeasons::class)->name($role . '.manage-seasons');
         Route::get('/operations', Operations::class)->name($role . '.operations');
         Route::get('/users', ManageUsers::class)->name($role . '.users');
     }
@@ -38,7 +43,7 @@ function getCommonRoutes($role)
         Route::get('/dashboard', Dashboard::class)->name($role . '.dashboard');
         Route::get('/manage-crops/on-farm-sites', OnFarmSites::class)->name($role . '.on-farm-sites');
         Route::get('/manage-crops/on-station-sites', OnStationSites::class)->name($role . '.on-station-sites');
-        Route::get('/manage-seasons', ManageSeasons::class)->name($role . '.manage-seasons');
+        Route::get('/manage-seasons/{id?}', ManageSeasons::class)->name($role . '.manage-seasons');
         Route::get('/operations', Operations::class)->name($role . '.operations');
     }
 

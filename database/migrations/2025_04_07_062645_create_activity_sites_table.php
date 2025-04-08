@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('activity_sites', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('activity_location_type_id')->constrained('activity_location_types')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('activity_location_id')->constrained('activity_locations')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
             $table->timestamps();
         });

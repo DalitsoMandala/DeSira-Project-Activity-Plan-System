@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('activity_location_types', function (Blueprint $table) {
+        Schema::create('technologies', function (Blueprint $table) {
             $table->id();
+            //     $table->foreignId('activity_location_type_id')->constrained('activity_location_types')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
             $table->timestamps();
         });
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('activity_location_types');
+        Schema::dropIfExists('technologies');
     }
 };

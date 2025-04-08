@@ -8,5 +8,10 @@ class Season extends Model
 {
     //
     protected $guarded = [];
-    protected $table ='seasons';
+    protected $table = 'seasons';
+
+    public function technology()
+    {
+        return $this->belongsTo(Technology::class, 'technology_id');
+    }
 }

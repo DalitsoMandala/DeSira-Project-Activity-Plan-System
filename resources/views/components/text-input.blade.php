@@ -1,3 +1,15 @@
 @props(['disabled' => false])
 
-<input @disabled($disabled) {{ $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) }}>
+@php
+    $model = $attributes->get('wire:model');
+    $baseClasses = 'block w-full p-2 mt-1 border rounded-md shadow-sm focus:border-blue-900 sm:text-sm';
+
+    if ($model) {
+        $borderClass = $errors->has($model) ? 'border-red-900' : 'border-gray-300';
+        $baseClasses .= ' ' . $borderClass;
+    } else {
+        $baseClasses .= ' border-gray-300';
+    }
+@endphp
+
+<input @disabled($disabled) {{ $attributes->merge(['class' => $baseClasses]) }}>

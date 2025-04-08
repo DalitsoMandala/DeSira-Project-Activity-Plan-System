@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Form;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,7 +20,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PartnersTableSeeder::class,
             SeasonSeeder::class,
-            // Your other seeders here
+            FormSeeder::class
+
 
         ]);
     }

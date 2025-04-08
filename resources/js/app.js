@@ -1,11 +1,16 @@
-import './bootstrap';
+import "./bootstrap";
 
-import Alpine from 'alpinejs';
-import collapse from '@alpinejs/collapse';
-import '../../node_modules/remixicon/fonts/remixicon.css';
+import Alpine from "alpinejs";
+import collapse from "@alpinejs/collapse";
+import "../../node_modules/remixicon/fonts/remixicon.css";
+// resources/js/app.js
+// resources/js/app.js
 
-Alpine.plugin(collapse)
+import flatpickr from "flatpickr";
+import "./../../vendor/power-components/livewire-powergrid/dist/powergrid";
 
-window.Alpine = Alpine;
+// Alpine.plugin(collapse);
 
-Alpine.start();
+// window.Alpine = Alpine;
+
+// Alpine.start();
